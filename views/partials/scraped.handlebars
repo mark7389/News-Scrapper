@@ -1,0 +1,17 @@
+{{#each story}}
+    {{#unless saved}}
+    <div class = "section">
+        <button class="btn btn-floating save tooltipped" data-position="bottom" data-dely="50" data-tooltip="Save Article" id={{this._id}}><i class="material-icons">archive</i></button>
+        <a class="article-link" href="{{this.link}}" target="_blank"><h5>{{this.headline}}</h5></a>
+        <p>Article Source: <i>{{this.outlet}}</i><br>
+           Since {{this.timePassed}} ago.    
+        </p>
+    </div>
+    {{/unless}}
+{{/each}}
+
+<script type="text/javascript">
+
+    Materialize.toast({{msg.counter}} + "  new articles found", 4500);
+
+</script>
