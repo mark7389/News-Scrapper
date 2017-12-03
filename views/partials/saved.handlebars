@@ -1,7 +1,7 @@
 {{#each story}}
     {{#if saved}}
     <div class = "section">
-        <button class="btn btn-floating savedBtn addComment tooltipped" data-position="bottom" data-dely="50" data-tooltip="comment" id={{this._id}}><i class="material-icons">comment</i></button>
+        <button class="btn btn-floating savedBtn addComment tooltipped" data-position="bottom" data-dely="50" data-tooltip="comment"  id={{this._id}}><i class="material-icons">comment</i></button>
         <button class="btn btn-floating savedBtn delete tooltipped" data-position="bottom" data-dely="50" data-tooltip="delete article" id={{this._id}}><i class="material-icons">delete</i></button>
         <a class="article-link" href="{{this.link}}" target="_blank"><h5>{{this.headline}}</h5></a>
         <p>Article Source: <i>{{this.outlet}}</i><br>
@@ -10,3 +10,26 @@
     </div>
     {{/if}}
 {{/each}}
+
+<div id="commentModal" class="modal bottom-sheet">
+
+        <div class="modal-content">
+            
+                <ul class="article_comments collection">
+                    
+                </ul>
+        </div>
+        
+                <form class="col s12">
+                        
+                        <div class="input-field">
+                                <textarea id="commentField" style="overflow:auto;resize:none" type="text" placeholder="enter comment..."></textarea>
+                                <button class="btn btn-floating savedBtn closeModal tooltipped" type="button" data-position="top" data-dely="50" data-tooltip="close"><i class="material-icons">close</i></button>
+                                <button class="btn btn-floating savedBtn tooltipped saveComment" type="submit" data-position="top" data-dely="50" data-tooltip="comment" id="submitComment"><i class="material-icons">create</i></button>
+                        </div>            
+
+                </form>
+    
+        
+
+</div>

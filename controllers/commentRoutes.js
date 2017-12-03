@@ -6,15 +6,18 @@ module.exports = function(app){
 
 
            app.post("/comment/:articleId", function(req, res){
-                console.log(req.body);
-                 db.Comment.create(req.body).then(function(dbComment){
-                            console.log("-------\n"+dbComment+
-                                        "   >><<  "+dbComment._id);
-                            return db.Article.findOneAndUpdate({"_id":req.params.articleId}, {$push:{comments:dbComment._id}}, {new:true});
-                 }).then(dbArticle=>{
+                
+                db.Comment.create(req.body).then(function(dbComment){
                     
-                     res.json({result:"comment saved !"});
-                }).catch(err=>{
+                            db.Article.findOneAndUpdate({"_id":req.params.articleId}, {$push:{comments:dbComment._id}}, {new:true}).then(dbArticle=>{
+
+                                 res.json({comment:dbComment,
+                                     result:"comment saved !"});;
+                             }).catch(err=>{
+                                console.log(err);
+                            });
+                     
+                 }).catch(err=>{
 
                      console.log(err);
                  });   
@@ -28,7 +31,7 @@ module.exports = function(app){
                 })
                .then(dbArticle=>{
                         console.log(dbArticle);
-                        res.json(dbArticle.comments);
+                        res.json(dbArticle);
                 }).catch(err=>{
                     
                     console.log(err);
