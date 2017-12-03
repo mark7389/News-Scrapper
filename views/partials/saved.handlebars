@@ -1,8 +1,8 @@
 {{#each story}}
     {{#if saved}}
     <div class = "section">
-        <button class="btn btn-floating savedBtn tooltipped" data-position="bottom" data-dely="50" data-tooltip="comment" id={{this._id}}><i class="material-icons">comment</i></button>
-        <button class="btn btn-floating savedBtn tooltipped" data-position="bottom" data-dely="50" data-tooltip="delete article" id={{this._id}}><i class="material-icons">delete</i></button>
+        <button class="btn btn-floating savedBtn addComment tooltipped" data-position="bottom" data-dely="50" data-tooltip="comment" id={{this._id}}><i class="material-icons">comment</i></button>
+        <button class="btn btn-floating savedBtn delete tooltipped" data-position="bottom" data-dely="50" data-tooltip="delete article" id={{this._id}}><i class="material-icons">delete</i></button>
         <a class="article-link" href="{{this.link}}" target="_blank"><h5>{{this.headline}}</h5></a>
         <p>Article Source: <i>{{this.outlet}}</i><br>
            Since {{this.timePassed}} ago.    
