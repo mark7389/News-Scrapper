@@ -96,13 +96,13 @@ $(document).ready(function(){
     }
     $(".modal").modal({
 
-        complete: hideModal()
+        complete: function(){hideModal()}
     });
     $(document).on("click", ".save", saveArticle);
     $(document).on("click", ".delete", unsaveArticle);
     $(document).on("click", ".addComment", showCommentModal);
     $(document).on("click", ".saveComment", saveComment);
     $(document).on("click", ".deleteComment", deleteComment);
-    $(document).on("click", ".closeModal", hideCommentModal);
+    
 
 });
