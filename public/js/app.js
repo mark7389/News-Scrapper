@@ -66,11 +66,7 @@ $(document).ready(function(){
 
     }
     
-//    function hideCommentModal(e){
-//            e.preventDefault();
-//            
-//            $(".modal").modal("close");
-//    }
+
     function hideModal(){
 
             $(".article_comments").empty();
