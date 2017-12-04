@@ -106,6 +106,7 @@ h5{
     margin:1% 7%;
     background-color: rgba(85,89,79, 0.4);
     width:85%;
+    min-height: 147.27px;
     color:white;
     padding:1rem;
     overflow: auto;
