@@ -34,7 +34,7 @@ module.exports = function(app){
                                            console.log("document created"+" "+articleCtr);
                                            if(i === $(this).length-1){
                                             
-                                                db.Article.find({}).then(function(dbArticle){
+                                                db.Article.find({}).sort({createdAt:-1}).then(function(dbArticle){
                                                    
                                                     
                                                     var hbsObj = {
@@ -54,11 +54,12 @@ module.exports = function(app){
 
                                             if(err.code == 11000){
                                                 console.log("duplicate record, bypassing...");
+                                                db.Article.update({headline: headline}, {$set:{timePassed:timePassed.split(" ")[0]}}).then(dbArticle=>{}).catch(err=>{});
                                                 
                                             }
                                             if(i === $(this).length-1){
 
-                                                      db.Article.find({}).then(function(dbArticle){
+                                                      db.Article.find({}).sort({createdAt:-1}).then(function(dbArticle){
                                                    
                                                     
                                                     var hbsObj = {
